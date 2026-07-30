@@ -1,12 +1,11 @@
-export const SideBar = ({ title, options, side }) => {
+import "./SideBar.css";
+
+export const SideBar = ({ title, side, children }) => {
     return (
         <aside className={`sidebar ${side}`}>
             <h2>{title}</h2>
-            <ul>
-                {options.map((option, index) => (
-                    <li key={index}>{option}</li>
-                ))}
-            </ul>
+
+            <div className="sidebar-content">{children}</div>
         </aside>
     );
 };
