@@ -1,21 +1,29 @@
 import { useEffect } from "react";
 import { UseGetDefaultShapes } from "../../shapes/hooks/use-get-shapes-default";
 import { ShapesSidebar } from "../../shapes/components/shapesSidebar/ShapesSidebar";
+import { DesignCanvas } from "../components/DesignCanvas";
+import "./Designer.css";
 
 export const Designer = () => {
     const { shapes, getDefaultShapes } = UseGetDefaultShapes();
 
     useEffect(() => {
         getDefaultShapes();
-    }, []);
-
+    }, [getDefaultShapes]);
     return (
-        <section>
-            <h1>Diseñador de rascadores</h1>
+        <section className="designer">
             <ShapesSidebar
                 title="Formas"
                 options={shapes}
                 side="left"
+            />
+
+            <DesignCanvas />
+
+            <ShapesSidebar
+                title="Formas"
+                options={shapes}
+                side="right"
             />
         </section>
     );
