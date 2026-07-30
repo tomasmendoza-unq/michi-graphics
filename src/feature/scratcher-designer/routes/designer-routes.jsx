@@ -1,4 +1,4 @@
-import { Designer } from "../pages/designer";
+import { Designer } from "../pages/Designer";
 
 export const designerRoutes = [
     {
