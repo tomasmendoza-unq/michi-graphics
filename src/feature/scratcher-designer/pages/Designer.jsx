@@ -1,16 +1,22 @@
-import { SideBar } from "../../../shared/components/sideBar/SideBar";
-import Canvas from "../../shapes/components/card/shape-card";
+import { useEffect } from "react";
+import { UseGetDefaultShapes } from "../../shapes/hooks/use-get-shapes-default";
+import { ShapesSidebar } from "../../shapes/components/shapesSidebar/ShapesSidebar";
 
 export const Designer = () => {
+    const { shapes, getDefaultShapes } = UseGetDefaultShapes();
+
+    useEffect(() => {
+        getDefaultShapes();
+    }, []);
+
     return (
         <section>
             <h1>Diseñador de rascadores</h1>
-            <SideBar
-                title="Piezas"
-                options={["Opción 1", "Opción 2", "Opción 3"]}
+            <ShapesSidebar
+                title="Formas"
+                options={shapes}
                 side="left"
             />
-            <Canvas />
         </section>
     );
 };
